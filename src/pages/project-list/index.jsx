@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import List from './list'
 import SearchPanel from './search-panel'
 
+const apiUrl = process.env.API_URL
+
 function Index() {
     const [param, setParam] = useState({
         name: '',
@@ -10,7 +12,7 @@ function Index() {
     const [list, setList] = useState([])
 
     useEffect(() => {
-        fetch('').then(async res => {
+        fetch(`${apiUrl}/`).then(async res => {
             if (res.ok) {
                 setList(await res.json())
             }

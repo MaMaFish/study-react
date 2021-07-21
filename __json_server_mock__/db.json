@@ -1,19 +1,25 @@
 {
-  "posts": [
+  "users":[
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "张三"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "name": "李四"
+    },
+    {
+      "id": 3,
+      "name": "王五"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+ "projects":[
+   {
+     "id": 1,
+     "name": "骑手管理",
+     "personId": 1,
+     "organization": "外卖组",
+     "created": 1604989757139
+   }
+ ]
 }

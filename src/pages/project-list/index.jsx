@@ -4,27 +4,36 @@ import SearchPanel from './search-panel'
 
 const apiUrl = process.env.API_URL
 
-function Index() {
+function ProjectListPage() {
     const [param, setParam] = useState({
         name: '',
         personId: ''
     })
     const [list, setList] = useState([])
+    const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch(`${apiUrl}/`).then(async res => {
+        fetch(`${apiUrl}/projects`).then(async res => {
             if (res.ok) {
                 setList(await res.json())
             }
         })
     }, [param])
 
+    useEffect(() => {
+        fetch(`${apiUrl}/users`).then(async res => {
+            if (res.ok) {
+                setUsers(await res.json())
+            }
+        })
+    }, [param])
+
     return (
         <div>
-            <List list={list}/>
-            <SearchPanel param={param} setParam={setParam}/>
+            <SearchPanel param={param} setParam={setParam} users={users}/>
+            <List users={users} list={list} />
         </div>
     )
 }
 
-export default Index
+export default ProjectListPage

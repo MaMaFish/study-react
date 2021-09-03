@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 function SearchPanel({ param, setParam, users }) {
-
-
-
-
     return (
         <div>
             <input val={param.name} onChange={evt => setParam({
-                ...param,
+                ...param, 
                 name: evt.target.value
             })} />
             <select value={param.personId} onChange={evt => setParam({
@@ -17,7 +13,7 @@ function SearchPanel({ param, setParam, users }) {
             })}>
                 <option value={''}>负责人</option>
                 {
-                    users.map(user => <option value={user.id}>user.name</option>)
+                    users.map(user => <option key={user.id} value={user.id}>{user.name}</option>)
                 }
             </select>
         </div>

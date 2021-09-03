@@ -6,7 +6,7 @@ export const cleanObject = (object) =>{
         const value = object[key]
         if (isFalsy(value)) {
             delete result[key]
-        }
+        } 
     })
     return result
 }

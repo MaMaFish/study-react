@@ -12,7 +12,7 @@ function Index() {
     const [list, setList] = useState([])
 
     useEffect(() => {
-        fetch(`${apiUrl}/`).then(async res => {
+        fetch(`${apiUrl}/projects`).then(async res => {
             if (res.ok) {
                 setList(await res.json())
             }
